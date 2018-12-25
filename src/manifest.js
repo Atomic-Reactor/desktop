@@ -39,7 +39,7 @@ module.exports = {
                     .default,
             },
             allRoutes: {
-                Home: require('components/page/Home/route').default,
+                Home: require('components/screen/Home/route').default,
                 Toolkit: require('reactium-core/components/Toolkit/route')
                     .default,
             },
@@ -127,7 +127,7 @@ module.exports = {
             allRoutes: {
                 type: 'route',
                 imports: [
-                    'components/page/Home/route',
+                    'components/screen/Home/route',
                     'reactium-core/components/Toolkit/route',
                 ],
             },
