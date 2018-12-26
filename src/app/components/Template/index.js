@@ -1,11 +1,12 @@
-
 /**
  * -----------------------------------------------------------------------------
  * Imports
  * -----------------------------------------------------------------------------
  */
 import React, { Component, Fragment } from 'react';
-
+import { Helmet } from 'react-helmet';
+import PropTypes from 'prop-types';
+import Plugins from 'reactium-core/components/Plugable/Plugins';
 
 /**
  * -----------------------------------------------------------------------------
@@ -14,17 +15,32 @@ import React, { Component, Fragment } from 'react';
  */
 
 export default class Template extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
+    static propTypes = {
+        className: PropTypes.string,
+        title: PropTypes.string,
+        zone: PropTypes.string,
+    };
+
+    static defaultProps = {
+        className: 'bg-blue white',
+        title: 'Atomic Reactor',
+    };
+
     render() {
+        const { children, className, title, zone } = this.props;
+
         return (
             <Fragment>
-                COMPONENT
+                <Helmet>
+                    <html lang='en' />
+                    <title>{title}</title>
+                    {className && <body className={className} />}
+                </Helmet>
+                <main role='main'>
+                    {zone && <Plugins zone={zone} />}
+                    {children}
+                </main>
             </Fragment>
         );
     }
 }
-
-Template.defaultProps = {};

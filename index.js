@@ -6,7 +6,9 @@ const { app, BrowserWindow } = require('electron');
 const config = require('./.core/gulp.config');
 const path = require('path');
 
-let splash, win;
+let splash,
+    win,
+    port = process.env.PORT || 7000;
 
 function splashScreen() {
     splash = new BrowserWindow({
@@ -32,11 +34,22 @@ function splashScreen() {
         mainScreen();
     });
 
-    splash.loadURL(`http://localhost:${config.port.browsersync}/splash.html`);
+    splash.loadURL(`http://localhost:${port}/splash.html`);
 }
 
 function mainScreen() {
-    win = new BrowserWindow({ width: 1024, height: 768, show: false });
+    win = new BrowserWindow({
+        width: 800,
+        height: 600,
+        maxWidth: 800,
+        maxHeight: 600,
+        minWidth: 400,
+        minHeight: 400,
+        maximizable: false,
+        fullscreenable: false,
+        show: false,
+        backgroundColor: '#4F82BA',
+    });
 
     win.on('closed', () => {
         win = null;
@@ -49,10 +62,15 @@ function mainScreen() {
         }, 3000);
     });
 
-    win.loadURL(`http://localhost:${config.port.browsersync}/toolkit`);
+    win.loadURL(`http://localhost:${port}`);
 }
 
-app.on('ready', splashScreen);
+function init() {
+    port = config.port.browsersync || port;
+    splashScreen();
+}
+
+app.on('ready', init);
 
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {

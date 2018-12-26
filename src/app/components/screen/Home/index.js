@@ -4,6 +4,7 @@
  * -----------------------------------------------------------------------------
  */
 import React from 'react';
+import Template from 'components/Template';
 
 /**
  * -----------------------------------------------------------------------------
@@ -11,7 +12,7 @@ import React from 'react';
  * -----------------------------------------------------------------------------
  */
 const Home = props => {
-    return <div>Home</div>;
+    return <Template />;
 };
 
 export default Home;
