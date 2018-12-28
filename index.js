@@ -39,16 +39,15 @@ function splashScreen() {
 
 function mainScreen() {
     win = new BrowserWindow({
-        width: 800,
+        width: 480,
         height: 600,
-        maxWidth: 800,
-        maxHeight: 600,
-        minWidth: 400,
+        maxWidth: 480,
+        minWidth: 480,
         minHeight: 400,
         maximizable: false,
         fullscreenable: false,
         show: false,
-        backgroundColor: '#4F82BA',
+        backgroundColor: '#F7F7F7',
     });
 
     win.on('closed', () => {

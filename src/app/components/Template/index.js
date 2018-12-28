@@ -22,8 +22,9 @@ export default class Template extends Component {
     };
 
     static defaultProps = {
-        className: 'bg-blue white',
+        className: null,
         title: 'Atomic Reactor',
+        zone: null,
     };
 
     render() {
