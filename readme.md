@@ -2,6 +2,8 @@
 
 # Reactium
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Atomic-Reactor/desktop.svg)](https://greenkeeper.io/)
+
 An opinionated framework for creating React + Redux apps.
 
 ## Quick Start
